@@ -31,3 +31,11 @@ class Feedback(models.Model):
 
     def __str__(self):
         return "{} - {}".format(self.person, self.company)
+
+
+class Retailers(models.Model):
+    name = models.CharField(max_length=256)
+    image = models.ImageField(upload_to='')
+
+    def __str__(self):
+        return self.name 

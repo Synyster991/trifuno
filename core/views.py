@@ -1,10 +1,13 @@
 from django.shortcuts import render
+from .models import Retailers
 
 def home(request):
+    all_retailers = Retailers.objects.all()
+    print(all_retailers)
     passing_dict = {
-        
+        "all_retailers": all_retailers
     }
-    return render(request, 'core/home.html')
+    return render(request, 'core/index.html', passing_dict)
 
 
 def about(request):
