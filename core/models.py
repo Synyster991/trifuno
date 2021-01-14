@@ -10,6 +10,9 @@ class Brand(models.Model):
     def __str__(self):
         return self.name
 
+    def summary(self):
+        return self.description[:75]
+
 
 class News(models.Model):
     name = models.CharField(max_length=256)
@@ -21,7 +24,7 @@ class News(models.Model):
         return self.name
 
     def summary(self):
-        return self.description[:100]
+        return self.description[:50]
 
 
 class Feedback(models.Model):

@@ -1,11 +1,15 @@
 from django.shortcuts import render
-from .models import Retailers
+from .models import Retailers, Feedback, Brand
 
 def home(request):
     all_retailers = Retailers.objects.all()
-    print(all_retailers)
+    all_feedbacks = Feedback.objects.all()
+    featured_brands = Brand.objects.all()[:6]
+    
     passing_dict = {
-        "all_retailers": all_retailers
+        "all_retailers": all_retailers,
+        "all_feedbacks": all_feedbacks,
+        "featured_brands": featured_brands
     }
     return render(request, 'core/index.html', passing_dict)
 
