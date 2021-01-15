@@ -34,6 +34,12 @@ def news(request):
     }
     return render(request, 'core/news.html')
 
+def contact(request):
+    passing_dict = {
+
+    }
+    return render(request, 'core/contact.html')
+
 def brand_detail(request, pk):
     brand = Brand.objects.get(pk=pk)
     passing_dict = {

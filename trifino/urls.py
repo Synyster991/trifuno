@@ -11,7 +11,7 @@ urlpatterns = [
     path('', views.home, name='index'),
     path('about', views.about, name="about"),
     path('brand', views.brand, name="brand"),
-    path('contact', views.brand, name="contact"), #! FIX IT
+    path('contact', views.contact, name="contact"),
     path('news', views.news, name='news'),
     # SECOND BASE URLS
     path('brand/<int:pk>', views.brand_detail, name='brand_detail'),
