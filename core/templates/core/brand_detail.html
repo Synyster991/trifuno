@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block contect %}
+
+<body>
+    <main>
+        <section class="bg-light pt-11 mb-6 pt-lg-12 mb-lg-7 text-center bg-layer-white-bottom-40-left-100" id=content>
+            <div class=container>
+                <div class="row justify-content-center">
+                    <div class=col-lg-8>
+                        <h1 class=display-4>{{ brand.name }}</h1>
+                        <p>{{ brand.description }}</p>
+                    </div>
+                    <div class=col-12 data-aos=fade-up>
+                        <div class=device-laptop>
+                            <picture>
+                                <img src="{{ brand.image.url }}" alt=laptop-frame class=img-fluid>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src=assets/js/theme.core.min.js></script>
+    <script src=assets/js/theme.min.js></script>
+</body>
+
+</html>
+{% endblock %}

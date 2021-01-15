@@ -1,171 +1,181 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block contect %}
-    <main>
-        <section class="bg-layer-light-top-80-left-60 min-vh-100 mt-5">
-            <div class=container>
-                <div class="row no-gutters align-items-center">
-                    <div class="col-lg-7 pt-12 pt-lg-0 pr-5" data-aos=fade-right data-aos-delay=100>
-                        <h1 class=display-3><br><span >More than a Food Brokerage Company</span></h1>
-                        <p class=mb-6>Aligning strategies to ultimately provide the consumer with the highest quality products at the best possible value</p><a href=#pages
-                            data-scroll
-                            class="btn btn-secondary text-uppercase d-inline-flex align-items-center">Explore Brands<svg
-                                width=16 height=16 class=ml-2 xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24">
-                                <title>arrow-right-1</title>
-                                <path
-                                    d=M19.5,12a2.3,2.3,0,0,1-.78,1.729L7.568,23.54a1.847,1.847,0,0,1-2.439-2.773l9.752-8.579a.25.25,0,0,0,0-.376L5.129,3.233A1.847,1.847,0,0,1,7.568.46l11.148,9.808A2.31,2.31,0,0,1,19.5,12Z>
-                                </path>
-                            </svg></a>
-                    </div>
-                    <div class="col-lg-5 pt-12" data-aos=fade-left>
-                        <div class="img-shifted img-shifted-with-edge shift-right vh-75">
-                            <div class="bg-image bg-cover"
-                                style="background-image: url(staticfiles/images/index_office.jpg);" data-jarallax
-                                data-speed=.8></div>
-                        </div>
+<main>
+    <section class="bg-layer-light-top-80-left-60 min-vh-100 mt-5">
+        <div class=container>
+            <div class="row no-gutters align-items-center">
+                <div class="col-lg-7 pt-12 pt-lg-0 pr-5" data-aos=fade-right data-aos-delay=100>
+                    <h1 class=display-3><br><span>More than a Food Brokerage Company</span></h1>
+                    <p class=mb-6>Aligning strategies to ultimately provide the consumer with the highest quality
+                        products at the best possible value</p><a href="{% url 'brand' %}" data-scroll
+                        class="btn btn-secondary text-uppercase d-inline-flex align-items-center">Explore Brands<svg
+                            width=16 height=16 class=ml-2 xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24">
+                            <title>arrow-right-1</title>
+                            <path
+                                d=M19.5,12a2.3,2.3,0,0,1-.78,1.729L7.568,23.54a1.847,1.847,0,0,1-2.439-2.773l9.752-8.579a.25.25,0,0,0,0-.376L5.129,3.233A1.847,1.847,0,0,1,7.568.46l11.148,9.808A2.31,2.31,0,0,1,19.5,12Z>
+                            </path>
+                        </svg></a>
+                </div>
+                <div class="col-lg-5 pt-12" data-aos=fade-left>
+                    <div class="img-shifted img-shifted-with-edge shift-right vh-75">
+                        <div class="bg-image bg-cover"
+                            style="background-image: url(staticfiles/images/index_office.jpg);" data-jarallax
+                            data-speed=.8></div>
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="py-6 py-lg-7" id=pages>
-            <div class=container>
-                <div class="row justify-content-center text-center">
-                    <div class="col-md-10 col-lg-8">
-                        <h2 class=h1>Retailers We Are Proud to Service Include</h2>
-                        <p></p>
-                    </div>
-                </div>
-                <div class="row pt-3 text-center">
-                    {% for retailer in all_retailers %}
-                    <div class="col-md-4 mb-5 mt-5" data-aos=fade-up>
-                        <h3>{{ retailer.name }}</h3>
-                            <picture><img src="{{ retailer.image.url }}" alt=printscreen-01  class="img-fluid shadow lift"> </picture>
-                    </div>
-                    {% endfor %}
+        </div>
+    </section>
+    <section class="py-6 py-lg-7" id=pages>
+        <div class=container>
+            <div class="row justify-content-center text-center">
+                <div class="col-md-10 col-lg-8">
+                    <h2 class=h1>Retailers We Are Proud to Service Include</h2>
+                    <p></p>
                 </div>
             </div>
-        </section>
-        <section class="bg-primary py-6 py-lg-7 mb-6 mb-lg-7 text-white" role=main>
-            <div class=container>
-                <div class=row>
-                    {% for feedback in all_feedbacks %}
-                    <div class="col-md mb-6 mb-md-0" data-aos=fade-up><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="white" class="bi bi-person-square" viewBox="0 0 16 16">
-                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                        <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z"/>
-                      </svg>
-                        <!-- <h2 class="h5 mb-2 mt-2">{{ feedback.person }}, {{ feedback.company }}</h2> -->
-                        <p class="font-size-5 mb-0 mt-4" style="text-align: justify;">{{ feedback.message }}</p>
-                    </div>
-                    {% endfor %}
+            <div class="row pt-3 text-center">
+                {% for retailer in all_retailers %}
+                <div class="col-md-4 mb-5 mt-5" data-aos=fade-up>
+                    <h3>{{ retailer.name }}</h3>
+                    <picture><img src="{{ retailer.image.url }}" alt=printscreen-01 class="img-fluid shadow lift">
+                    </picture>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section class="bg-primary py-6 py-lg-7 mb-6 mb-lg-7 text-white" role=main>
+        <div class=container>
+            <div class=row>
+                {% for feedback in all_feedbacks %}
+                <div class="col-md mb-6 mb-md-0" data-aos=fade-up><svg xmlns="http://www.w3.org/2000/svg" width="40"
+                        height="40" fill="white" class="bi bi-person-square" viewBox="0 0 16 16">
+                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                        <path
+                            d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1v-1c0-1-1-4-6-4s-6 3-6 4v1a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12z" />
+                    </svg>
+                    <!-- <h2 class="h5 mb-2 mt-2">{{ feedback.person }}, {{ feedback.company }}</h2> -->
+                    <p class="font-size-5 mb-0 mt-4" style="text-align: justify;">{{ feedback.message }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section class="py-6 py-lg-7">
+        <div class=container>
+            <div class="row justify-content-center text-center">
+                <div class="col-md-10 col-lg-8">
+                    <h2 class=h1>Some of our Brands</h2>
+                    <p>We represent a wide range of products and manufacturers across many categories including Private
+                        Label. Some of our most popular branded products are shown below. Click on images to read and
+                        see more.</p>
                 </div>
             </div>
-        </section>
-        <section class="py-6 py-lg-7">
-            <div class=container>
-                <div class="row justify-content-center text-center">
-                    <div class="col-md-10 col-lg-8">
-                        <h2 class=h1>Some of our Brands</h2>
-                        <p>We represent a wide range of products and manufacturers across many categories including Private Label. Some of our most popular branded products are shown below. Click on images to read and see more.</p>
-                    </div>
-                </div>
-                <div class="row row-cols-md-2 row-cols-lg-3 mt-4">
-                    {% for brand in featured_brands %}
-                    <div class="col-lg-4 d-flex mb-5" data-aos=zoom-in>
-                        <div>
+            <div class="row row-cols-md-2 row-cols-lg-3 mt-4">
+                {% for brand in featured_brands %}
+                <div class="col-lg-4 d-flex mb-5" data-aos=zoom-in>
+                    <a href="{% url 'brand_detail' brand.pk %}" class="text-decoration-none">
+                    <div>
                             <img src="{{ brand.image.url }}" alt="{{brand.name}} - Logo" width=75 height="50" />
-                                <title>responsive-design-1</title>
+                            <title>responsive-design-1</title>
+                            <path
+                            d=M2.625,13.375a1.752,1.752,0,0,0,1.75,1.75h6.5a1.752,1.752,0,0,0,1.75-1.75v-10a1.752,1.752,0,0,0-1.75-1.751h-1.5a.75.75,0,0,0-.75.749v1.5a.751.751,0,0,0,.75.751h1.5a.25.25,0,0,1,.25.25v7a.25.25,0,0,1-.25.25h-7.5a.75.75,0,0,0-.75.75Z />
+                            <path
+                            d=M7.124,1.875A1.752,1.752,0,0,0,5.374.125h-3.5a1.752,1.752,0,0,0-1.75,1.75v7a1.752,1.752,0,0,0,1.75,1.75h3.5a1.752,1.752,0,0,0,1.75-1.75Zm-1.5,5.5a.25.25,0,0,1-.25.25h-3.5a.25.25,0,0,1-.25-.25v-5.5a.25.25,0,0,1,.25-.25h3.5a.25.25,0,0,1,.25.25Z />
+                            <path
+                            d=M13.875,7.375a1,1,0,0,0,1,1h6.75a.25.25,0,0,1,.25.25v7.5a.25.25,0,0,1-.25.25H7.374a1,1,0,0,0-1,1v1a2,2,0,0,0,2,2h5.25a.25.25,0,0,1,.25.25v1a.25.25,0,0,1-.25.25h-2.25a1,1,0,0,0,0,2h7a1,1,0,0,0,0-2h-2.25a.25.25,0,0,1-.25-.25v-1a.25.25,0,0,1,.25-.25h5.75a2,2,0,0,0,2-2v-10a2,2,0,0,0-2-2h-7A1,1,0,0,0,13.875,7.375Z />
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="h3 mb-2">{{ brand.name }}</h3>
+                        <p class="small mb-0">{{ brand.summary }}... <br></p>
+                    </div>
+                </a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <section class="my-6 my-lg-7 bg-primary">
+        <div class="container py-8">
+            <div class="row justify-content-center align-items-center text-center">
+                <div class="col-lg-10 text-white" data-aos=zoom-in>
+                    <h3 class="font-size-4 font-weight-normal font-italic">“Far and away the best prize that life offers
+                        is the chance to work hard at work worth doing.”</h3>
+                    <p class="font-size-6 text-muted mb-0">Theodore Roosevelt</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-6 py-lg-7">
+        <div class=container>
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-xl-7 mb-7 mb-lg-0" data-aos=fade-right>
+                    <picture><img src="{% static 'images/company.jpg' %}" alt=editor class="img-fluid w-100 shadow-sm">
+                    </picture>
+                </div>
+                <div class=col>
+                    <div class=d-flex data-aos=fade-left>
+                        <div class="d-flex align-items-start mt-1"><svg class=fill-secondary width=16 height=16
+                                xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24">
+                                <title>check</title>
                                 <path
-                                    d=M2.625,13.375a1.752,1.752,0,0,0,1.75,1.75h6.5a1.752,1.752,0,0,0,1.75-1.75v-10a1.752,1.752,0,0,0-1.75-1.751h-1.5a.75.75,0,0,0-.75.749v1.5a.751.751,0,0,0,.75.751h1.5a.25.25,0,0,1,.25.25v7a.25.25,0,0,1-.25.25h-7.5a.75.75,0,0,0-.75.75Z />
-                                <path
-                                    d=M7.124,1.875A1.752,1.752,0,0,0,5.374.125h-3.5a1.752,1.752,0,0,0-1.75,1.75v7a1.752,1.752,0,0,0,1.75,1.75h3.5a1.752,1.752,0,0,0,1.75-1.75Zm-1.5,5.5a.25.25,0,0,1-.25.25h-3.5a.25.25,0,0,1-.25-.25v-5.5a.25.25,0,0,1,.25-.25h3.5a.25.25,0,0,1,.25.25Z />
-                                <path
-                                    d=M13.875,7.375a1,1,0,0,0,1,1h6.75a.25.25,0,0,1,.25.25v7.5a.25.25,0,0,1-.25.25H7.374a1,1,0,0,0-1,1v1a2,2,0,0,0,2,2h5.25a.25.25,0,0,1,.25.25v1a.25.25,0,0,1-.25.25h-2.25a1,1,0,0,0,0,2h7a1,1,0,0,0,0-2h-2.25a.25.25,0,0,1-.25-.25v-1a.25.25,0,0,1,.25-.25h5.75a2,2,0,0,0,2-2v-10a2,2,0,0,0-2-2h-7A1,1,0,0,0,13.875,7.375Z />
+                                    d=M23.146,5.4,20.354,2.6a.5.5,0,0,0-.708,0L7.854,14.4a.5.5,0,0,1-.708,0L4.354,11.6a.5.5,0,0,0-.708,0L.854,14.4a.5.5,0,0,0,0,.707L7.146,21.4a.5.5,0,0,0,.708,0L23.146,6.1A.5.5,0,0,0,23.146,5.4Z />
                             </svg></div>
-                        <div>
-                            <h3 class="h3 mb-2">{{ brand.name }}</h3>
-                            <p class="small mb-0">{{ brand.summary }}... <br></p>
+                        <div class=ml-2>
+                            <h4 class="h3 mb-5">Building relationships with clients</h4>
                         </div>
                     </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </section>
-        <section class="my-6 my-lg-7 bg-primary">
-            <div class="container py-8">
-                <div class="row justify-content-center align-items-center text-center">
-                    <div class="col-lg-10 text-white" data-aos=zoom-in>
-                        <h3 class="font-size-4 font-weight-normal font-italic">“Far and away the best prize that life offers is the chance to work hard at work worth doing.”</h3>
-                        <p class="font-size-6 text-muted mb-0">Theodore Roosevelt</p>
+                    <div class=d-flex data-aos=fade-left data-aos-delay=100>
+                        <div class="d-flex align-items-start mt-1"><svg class=fill-secondary width=16 height=16
+                                xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24">
+                                <title>check</title>
+                                <path
+                                    d=M23.146,5.4,20.354,2.6a.5.5,0,0,0-.708,0L7.854,14.4a.5.5,0,0,1-.708,0L4.354,11.6a.5.5,0,0,0-.708,0L.854,14.4a.5.5,0,0,0,0,.707L7.146,21.4a.5.5,0,0,0,.708,0L23.146,6.1A.5.5,0,0,0,23.146,5.4Z />
+                            </svg></div>
+                        <div class=ml-2>
+                            <h4 class="h3 mb-5">Analyzing data and market trends.</h4>
+                        </div>
                     </div>
-                </div>
-            </div>
-        </section>
-        <section class="py-6 py-lg-7">
-            <div class=container>
-                <div class="row align-items-center">
-                    <div class="col-lg-6 col-xl-7 mb-7 mb-lg-0" data-aos=fade-right>
-                        <picture><img src="{% static 'images/company.jpg' %}" alt=editor class="img-fluid w-100 shadow-sm">
-                        </picture>
+                    <div class=d-flex data-aos=fade-left data-aos-delay=200>
+                        <div class="d-flex align-items-start mt-1"><svg class=fill-secondary width=16 height=16
+                                xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24">
+                                <title>check</title>
+                                <path
+                                    d=M23.146,5.4,20.354,2.6a.5.5,0,0,0-.708,0L7.854,14.4a.5.5,0,0,1-.708,0L4.354,11.6a.5.5,0,0,0-.708,0L.854,14.4a.5.5,0,0,0,0,.707L7.146,21.4a.5.5,0,0,0,.708,0L23.146,6.1A.5.5,0,0,0,23.146,5.4Z />
+                            </svg></div>
+                        <div class=ml-2>
+                            <h4 class="h3 mb-5">Networking to attract potential clients</h4>
+                        </div>
                     </div>
-                    <div class=col>
-                        <div class=d-flex data-aos=fade-left>
-                            <div class="d-flex align-items-start mt-1"><svg class=fill-secondary width=16 height=16
-                                    xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24">
-                                    <title>check</title>
-                                    <path
-                                        d=M23.146,5.4,20.354,2.6a.5.5,0,0,0-.708,0L7.854,14.4a.5.5,0,0,1-.708,0L4.354,11.6a.5.5,0,0,0-.708,0L.854,14.4a.5.5,0,0,0,0,.707L7.146,21.4a.5.5,0,0,0,.708,0L23.146,6.1A.5.5,0,0,0,23.146,5.4Z />
-                                </svg></div>
-                            <div class=ml-2>
-                                <h4 class="h3 mb-5">Building relationships with clients</h4>
-                            </div>
-                        </div>
-                        <div class=d-flex data-aos=fade-left data-aos-delay=100>
-                            <div class="d-flex align-items-start mt-1"><svg class=fill-secondary width=16 height=16
-                                    xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24">
-                                    <title>check</title>
-                                    <path
-                                        d=M23.146,5.4,20.354,2.6a.5.5,0,0,0-.708,0L7.854,14.4a.5.5,0,0,1-.708,0L4.354,11.6a.5.5,0,0,0-.708,0L.854,14.4a.5.5,0,0,0,0,.707L7.146,21.4a.5.5,0,0,0,.708,0L23.146,6.1A.5.5,0,0,0,23.146,5.4Z />
-                                </svg></div>
-                            <div class=ml-2>
-                                <h4 class="h3 mb-5">Analyzing data and market trends.</h4>
-                            </div>
-                        </div>
-                        <div class=d-flex data-aos=fade-left data-aos-delay=200>
-                            <div class="d-flex align-items-start mt-1"><svg class=fill-secondary width=16 height=16
-                                    xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24">
-                                    <title>check</title>
-                                    <path
-                                        d=M23.146,5.4,20.354,2.6a.5.5,0,0,0-.708,0L7.854,14.4a.5.5,0,0,1-.708,0L4.354,11.6a.5.5,0,0,0-.708,0L.854,14.4a.5.5,0,0,0,0,.707L7.146,21.4a.5.5,0,0,0,.708,0L23.146,6.1A.5.5,0,0,0,23.146,5.4Z />
-                                </svg></div>
-                            <div class=ml-2>
-                                <h4 class="h3 mb-5">Networking to attract potential clients</h4>
-                            </div>
-                        </div>
-                        <div class=d-flex data-aos=fade-left data-aos-delay=300>
-                            <div class="d-flex align-items-start mt-1"><svg class=fill-secondary width=16 height=16
-                                    xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24">
-                                    <title>check</title>
-                                    <path
-                                        d=M23.146,5.4,20.354,2.6a.5.5,0,0,0-.708,0L7.854,14.4a.5.5,0,0,1-.708,0L4.354,11.6a.5.5,0,0,0-.708,0L.854,14.4a.5.5,0,0,0,0,.707L7.146,21.4a.5.5,0,0,0,.708,0L23.146,6.1A.5.5,0,0,0,23.146,5.4Z />
-                                </svg></div>
-                            <div class=ml-2>
-                                <h4 class="h3 mb-5">Demonstrating a solid understanding of the company's products or services</h4>
-                            </div>
+                    <div class=d-flex data-aos=fade-left data-aos-delay=300>
+                        <div class="d-flex align-items-start mt-1"><svg class=fill-secondary width=16 height=16
+                                xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24">
+                                <title>check</title>
+                                <path
+                                    d=M23.146,5.4,20.354,2.6a.5.5,0,0,0-.708,0L7.854,14.4a.5.5,0,0,1-.708,0L4.354,11.6a.5.5,0,0,0-.708,0L.854,14.4a.5.5,0,0,0,0,.707L7.146,21.4a.5.5,0,0,0,.708,0L23.146,6.1A.5.5,0,0,0,23.146,5.4Z />
+                            </svg></div>
+                        <div class=ml-2>
+                            <h4 class="h3 mb-5">Demonstrating a solid understanding of the company's products or
+                                services</h4>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <section class="py-6 mt-6 py-lg-7 mt-lg-7 bg-light">
-            <div class=container>
-                <div class="row justify-content-center align-items-center">
-                    <div class="col-lg-6 col-xl-7 text-center text-lg-right">
-                        <h2 class="h3 mb-lg-0">Don't wait up! Start your cooperation with us!</h2>
-                    </div>
-                    <div class="col text-center text-lg-left"><a href=https://themes.getbootstrap.com/product/square
-                            target=_blank rel=noopener class="btn btn-secondary text-uppercase">Contact Us Now</a></div>
+        </div>
+    </section>
+    <section class="py-6 mt-6 py-lg-7 mt-lg-7 bg-light">
+        <div class=container>
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6 col-xl-7 text-center text-lg-right">
+                    <h2 class="h3 mb-lg-0">Don't wait up! Start your cooperation with us!</h2>
                 </div>
+                <div class="col text-center text-lg-left"><a href="{% url 'contact' %}" target=_blank rel=noopener
+                        class="btn btn-secondary text-uppercase">Contact Us Now</a></div>
             </div>
-        </section>
-    </main>
-    {% endblock %}
+        </div>
+    </section>
+</main>
+{% endblock %}
