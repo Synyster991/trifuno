@@ -1,1 +1,155 @@
-<h1>Brand</h1>
+<!DOCTYPE html>
+{% load static %}
+<html lang=en>
+
+<head>
+    <meta charset=utf-8>
+    <meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <meta name=description content="Square - Premium Bootstrap Theme">
+    <meta name=keywords
+        content="bootstrap, theme, template, multipurpose, landing, html5, css3, javascript, event, case study, photography, about, team, portfolio, services, contact, pricing, faqs, careers, blog, sign in, sign up, coming soon, legal">
+    <meta name=author content="Webinning Ltd.">
+    <title>Trifuno Inc.</title>
+    <link rel=apple-touch-icon sizes=180x180 href="{% static 'assets/images/icons/favicons/apple-touch-icon.png' %}">
+    <link rel=icon type=image/png sizes=32x32 href="{% static 'assets/images/icons/favicons/favicon-32x32.png' %}">
+    <link rel=icon type=image/png sizes=16x16 href="{% static 'assets/images/icons/favicons/favicon-16x16.png' %}">
+    <link rel=manifest href="{% static 'assets/images/icons/favicons/site.webmanifest' %}"">
+    <link rel=mask-icon href=" {% static 'assets/images/icons/favicons/safari-pinned-tab.svg' %}" color=#232323>
+    <meta name=msapplication-TileColor content=#ffffff>
+    <meta name=theme-color content=#ffffff>
+    <link href="{% static 'assets/css/theme.min.css' %}" rel=stylesheet>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-174248960-1"></script>
+    <script>window.dataLayer = window.dataLayer || []; function gtag() { dataLayer.push(arguments); } gtag('js', new Date()); gtag('config', 'UA-174248960-1');</script>
+</head>
+
+<body>
+    <header class="navbar navbar-expand-lg align-items-center w-100 position-absolute z-index-10 navbar-dark">
+        <div class="position-relative container-fluid"><a href=#content class="skip-to-main sr-only-focusable"
+                role=button>Skip to main content</a><a class="navbar-brand mr-auto" href="{% url 'index' %}"
+                aria-label="Click to go back to Homepage">
+                <img src="{% static 'images/logo.png' %}" alt="Logo-Image" width="45%" />
+            </a><button class="navbar-toggler ml-auto" type=button data-toggle=collapse data-target=#navbarCollapse
+                aria-expanded=false aria-label="Toggle navigation"><span class=navbar-toggler-icon></span></button>
+            <div class="collapse navbar-collapse" id=navbarCollapse>
+                <ul class="navbar-nav ml-auto">
+                    <li class=nav-item><a class="nav-link active" href="{% url 'index' %}">Home</a></li>
+
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="{% url 'about' %}"
+                            id=navbarDemos role=button>About</a>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="{% url 'contact' %}"
+                            id=navbarPages role=button>Contact</a>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="{% url 'news' %}"
+                            id=navbarDocs role=button>News</a>
+                    </li>
+                </ul><a class="btn btn-sm btn-secondary text-uppercase mt-3 mt-lg-0 ml-lg-4 d-block d-lg-inline-block"
+                    href="{% url 'brand' %}" rel=noopener>Brands</a>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="bg-primary pt-11 pt-lg-12 text-white bg-layer-white-bottom-50-left-100">
+            <div class=container>
+                <div class=row>
+                    <div class=col>
+                        <h1>Brands</h1><a href=blog-single.html>
+                            <picture><img src="{% static 'images/brand_image.jpg' %}" alt=photo-33
+                                    class="h-auto img-fullplus" data-aos=fade-down>
+                            </picture>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id=content data-aos=fade-up>
+            <div class="container mb-7 mb-lg-10 mt-n7">
+                <div class=row>
+                    <div class=col>
+                        <div class="p-5 px-lg-7 py-lg-6 bg-white shadow">
+                            <div class="row no-gutters">
+                                <div class=col-lg-8>
+                                    <h2>Brands that we are happy to colaborate with them</h2>
+                                </div>
+                                <div class="col-lg-8 col-xl-9">
+                                    <p class="lead mb-lg-0">We represent a wide range of products and manufacturers
+                                        across many categories including Private Label. Some of our most popular branded
+                                        products are shown below</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+        <section class=bg-light>
+            <div class="container pt-6 pb-7 pt-lg-7 pb-lg-10">
+                <div class=row>
+                    <div class=col>
+                        <h2>Brands that we colaborate</h2>
+                        {% for brand in all_brands %}
+
+                        <a class="card shadow-sm lift mb-5 mb-lg-6" href="{% url 'brand_detail' brand.pk %}">
+                            <div class="row no-gutters">
+                                <div class="{% cycle 'col-lg-5 py-8 py-md-9' 'col-lg-5 order-lg-last py-8 py-md-9' %}"col-lg-5 py-8 py-md-9>
+                                    <div class="bg-image bg-cover"
+                                        style="background-image: url({{ brand.image.url }});"></div>
+                                </div>
+                                <div class=col-lg-7>
+                                    <div class="card-body p-5 py-lg-6 px-lg-5">
+                                        <h3 class=card-title>{{ brand.name }}<svg width=22 height=22
+                                                class="fill-secondary ml-2 mt-n1" xmlns=http://www.w3.org/2000/svg
+                                                viewBox="0 0 24 24">
+                                                <title>navigation-next-alternate</title>
+                                                <path
+                                                    d=M23.7,10.209a1,1,0,0,0,0-1.414L20.2,5.3A1,1,0,0,0,18.5,6v1.75a.249.249,0,0,1-.25.25H12.5a4.005,4.005,0,0,0-4,4v2a1.5,1.5,0,0,0,3,0V12a1,1,0,0,1,1-1h5.75a.249.249,0,0,1,.25.25V13a1,1,0,0,0,1.708.707Z />
+                                                <path
+                                                    d=M16,12.5a1,1,0,0,0-1,1V18a.5.5,0,0,1-.5.5H2.5A.5.5,0,0,1,2,18V6a.5.5,0,0,1,.5-.5H15a1,1,0,1,0,2,0,2,2,0,0,0-2-2H2a2,2,0,0,0-2,2v13a2,2,0,0,0,2,2H15a2,2,0,0,0,2-2v-5A1,1,0,0,0,16,12.5Z />
+                                            </svg></h3>
+                                        <p class=card-text>{{ brand.summary}}...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-primary text-white small">
+        <div class="pt-6">
+            <div class=container>
+                <div class="row justify-content-md-between">
+                    <div class="col-md-5 col-lg-4 d-flex flex-column justify-content-between">
+                        <img src="{% static 'images/logo.png' %}" alt="logo" height="25%" />
+                    </div>
+                    <div class="col-md-7 col-lg-6 mt-5 mt-md-0">
+                        <div class=row>
+                            <div class="col-6 col-md-4 mb-md-0">
+                                <h3 class="h6 text-uppercase mb-3">Company</h3>
+                                <ul class=list-unstyled>
+                                    <li class=mb-1><a href="{% url 'about' %}" class=text-reset>About Us</a></li>
+                                    <li class=mb-1><a href="{% url 'contact' %}" class=text-reset>Contact Us</a></li>
+                                    <li class=mb-1><a href="{% url 'brand' %}" class=text-reset>Brands</a></li>
+                                    <li class=mb-1><a href="{% url 'news' %}" class=text-reset>News</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="border-top border-gray py-3">
+            <div class=container>
+                <div class="row justify-content-between small">
+
+                    <div class=col-auto><span>&copy; Trifuno inc, {% now "Y" %}</span></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="{% static 'assets/js/theme.core.min.js' %}"></script>
+    <script src="{% static 'assets/js/theme.min.js' %}"></script>
+</body>
+
+</html>

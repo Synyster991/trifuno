@@ -22,10 +22,12 @@ def about(request):
 
 
 def brand(request):
+    all_brands = Brand.objects.all()
+
     passing_dict = {
-        
+        "all_brands": all_brands
     }
-    return render(request, 'core/brand.html')
+    return render(request, 'core/brand.html', passing_dict)
 
 
 def news(request):
