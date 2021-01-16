@@ -42,3 +42,15 @@ class Retailers(models.Model):
 
     def __str__(self):
         return self.name 
+
+
+class Contact(models.Model):
+    full_name = models.CharField(max_length=255)
+    phone_number = models.IntegerField(default="")
+    email = models.EmailField()
+    company = models.CharField(max_length=255, default="")
+    message = models.TextField()
+    date = models.DateField()
+
+    def __str__(self):
+        return "{} - {} ({})".format(self.full_name, self.company, self.date)

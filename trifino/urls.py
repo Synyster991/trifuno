@@ -14,5 +14,6 @@ urlpatterns = [
     path('contact', views.contact, name="contact"),
     path('news', views.news, name='news'),
     # SECOND BASE URLS
+    path('contact/add', views.add_contact, name="add_contact"),
     path('brand/<int:pk>', views.brand_detail, name='brand_detail'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

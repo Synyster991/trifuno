@@ -1,1 +1,106 @@
-<h1>Contact</h1>
+{% extends 'base.html' %}
+{% load static %}
+{% block contect %}
+<main>
+    <section class="pt-11 mb-6 pt-lg-12 mb-lg-7" id=content>
+        <div class=container>
+            <div class=row>
+                <div class=col>
+                    <h1 class=mb-n3>How can we help?</h1>
+                </div>
+            </div>
+            <div class=row>
+                <div class="col pt-5">
+                    <div class="bg-white shadow-lg">
+                        <div class="row no-gutters">
+                            <div class="col-lg-7 p-4 p-lg-6">
+                                {% if error_msg %}
+                                {% if error_type == 0 %}
+                                <div class="alert alert-success" role="alert">
+                                    {% else %}
+                                    <div class="alert alert-danger" role="alert">
+                                    {% endif %}
+                                    {{ error_msg }}
+                                </div>
+                                {% endif %}
+                                <h2 class=h3>Get In Touch</h2>
+                                <form method="POST" action="{% url 'add_contact' %}">{% csrf_token %}
+                                    <div class="row mx-n2">
+                                        <div class="col-md px-2 mb-3"><input class=form-control type=text
+                                                name="full_name" placeholder="Full name" aria-label="Full name"></div>
+                                        <div class="col-md px-2 mb-3"><input class=form-control type=tel
+                                                name="phone_number" placeholder="Phone number"
+                                                aria-label="Phone number"></div>
+                                    </div>
+                                    <div class="row mx-n2">
+                                        <div class="col-md px-2 mb-3"><input class=form-control type=email name="email"
+                                                placeholder="Email address" aria-label="Email address"></div>
+                                        <div class="col-md px-2 mb-3"><input class=form-control type=text name="company"
+                                                placeholder=Company aria-label=Company></div>
+                                    </div>
+                                    <div class="row mx-n2">
+                                        <div class="col px-2 mb-3"><textarea class=form-control rows=7 name="message"
+                                                placeholder=Message aria-label=Message></textarea></div>
+                                    </div>
+                                    <div class="row justify-content-between">
+                                        <div class=col-md>
+                                            <p class="small text-muted mb-4">We won't spam you, promise</p>
+                                        </div>
+                                        <div class="col col-md-auto"><button type=submit
+                                                class="btn btn-secondary text-uppercase d-inline-flex align-items-center w-100">Send<svg
+                                                    width=16 height=16 class=ml-2 xmlns=http://www.w3.org/2000/svg
+                                                    viewBox="0 0 24 24">
+                                                    <title>send-email-1</title>
+                                                    <path
+                                                        d=M23.612.225a1.045,1.045,0,0,0-1.138-.1L.827,11.646a1.547,1.547,0,0,0,.125,2.8l3.254,1.38a.719.719,0,0,0,.043.245l2.5,6.746A1.817,1.817,0,0,0,8.463,24a1.846,1.846,0,0,0,1.219-.474c.039-.035,2.79-3.078,3.4-3.754a.249.249,0,0,1,.283-.062l3.157,1.339a1.591,1.591,0,0,0,1.3-.027,1.563,1.563,0,0,0,.835-.983L23.961,1.3A1.014,1.014,0,0,0,23.612.225ZM5.838,16.046,15.53,7.983A.226.226,0,0,1,15.867,8a.219.219,0,0,1,.019.332L8.648,17.187a.728.728,0,0,0-.157.351l-.633,3.95Z />
+                                                </svg></button></div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="mb-9 mb-lg-10">
+        <div class=container>
+            <div class="row mx-n3 justify-content-center text-center">
+                <div class="col-md-6 col-lg-4 px-3 mb-3 mb-lg-0" data-aos=fade-up>
+                    <div class="card shadow bg-light h-100 lift">
+                        <div class="card-body py-5 px-2"><svg width=40 height=40 class="fill-secondary mb-3"
+                                xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24">
+                                <title>building-modern-2</title>
+                                <path
+                                    d=M7.125,6h8a.5.5,0,0,0,.3-.9l-3.1-2.325a.5.5,0,0,1-.2-.4V1a1,1,0,0,0-2,0V2.375a.5.5,0,0,1-.2.4L6.825,5.1A.5.5,0,0,0,7.125,6Z />
+                                <path
+                                    d=M15.125,7.5h-8a.5.5,0,0,0-.5.5V23.5a.5.5,0,0,0,.5.5h8a.5.5,0,0,0,.5-.5V8A.5.5,0,0,0,15.125,7.5Zm-5,13a.75.75,0,0,1-1.5,0v-10a.75.75,0,0,1,1.5,0Zm3.5,0a.75.75,0,0,1-1.5,0v-10a.75.75,0,0,1,1.5,0Z />
+                                <path
+                                    d=M4.625,13h-4a.5.5,0,0,0-.5.5v10a.5.5,0,0,0,.5.5h4a.5.5,0,0,0,.5-.5v-10A.5.5,0,0,0,4.625,13Zm-1.25,8a.75.75,0,0,1-1.5,0V20a.75.75,0,0,1,1.5,0Zm0-4a.75.75,0,0,1-1.5,0V16a.75.75,0,0,1,1.5,0Z />
+                                <path
+                                    d=M23.42,12.811l-5.25-2.25a.75.75,0,0,0-1.045.689v12a.75.75,0,0,0,.75.75h5.25a.75.75,0,0,0,.75-.75V13.5A.749.749,0,0,0,23.42,12.811ZM19.875,20.5a.75.75,0,0,1-1.5,0v-1a.75.75,0,0,1,1.5,0Zm0-4.5a.75.75,0,0,1-1.5,0V15a.75.75,0,0,1,1.5,0Zm2.5,4.5a.75.75,0,0,1-1.5,0v-1a.75.75,0,0,1,1.5,0Zm0-4.5a.75.75,0,0,1-1.5,0V15a.75.75,0,0,1,1.5,0Z />
+                            </svg>
+                            <p class="font-size-6 mb-0">Markham, Ontario<br>Canada</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 px-3 mb-3 mb-lg-0" data-aos=fade-up data-aos-delay=50>
+                    <div class="card shadow bg-light h-100 lift">
+                        <div class="card-body py-5 px-2"><svg width=40 height=40 class="fill-secondary mb-3"
+                                xmlns=http://www.w3.org/2000/svg viewBox="0 0 24 24">
+                                <title>phone-landline</title>
+                                <path
+                                    d=M18.5,11.956a4.005,4.005,0,0,1-3.961-3.442.248.248,0,0,0-.23-.218,45.021,45.021,0,0,0-4.618,0,.248.248,0,0,0-.23.218A4.005,4.005,0,0,1,5.5,11.956H4.251a.25.25,0,0,0-.25.25v7.75a2.5,2.5,0,0,0,2.5,2.5h11a2.5,2.5,0,0,0,2.5-2.5v-7.75a.25.25,0,0,0-.25-.25ZM12,17.512a1,1,0,1,1-1,1A1,1,0,0,1,12,17.512Zm-1-2.966a1,1,0,1,1,1,1A1,1,0,0,1,11,14.546Zm3,3.966a1,1,0,1,1,1,1A1,1,0,0,1,14,18.512Zm2-3.966a1,1,0,1,1-1-1A1,1,0,0,1,16,14.546Zm-7-1a1,1,0,1,1-1,1A1,1,0,0,1,9,13.546Zm0,3.966a1,1,0,1,1-1,1A1,1,0,0,1,9,17.512Z />
+                                <path
+                                    d=M21.1,2.466h0a45.381,45.381,0,0,0-18.2,0A3.7,3.7,0,0,0,0,5.956v2a2.5,2.5,0,0,0,2.5,2.5h3A2.5,2.5,0,0,0,8,7.956V7.144a.254.254,0,0,1,.232-.253,45.151,45.151,0,0,1,7.536,0A.254.254,0,0,1,16,7.144v.812a2.5,2.5,0,0,0,2.5,2.5h3a2.5,2.5,0,0,0,2.5-2.5v-2A3.7,3.7,0,0,0,21.1,2.466Z />
+                            </svg>
+                            <p class="font-size-6 mb-0">T: 416-569-4541</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}
