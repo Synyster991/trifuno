@@ -20,7 +20,7 @@ def about(request):
     passing_dict = {
 
     }
-    return render(request, 'core/about.html')
+    return render(request, 'core/about.html', passing_dict)
 
 
 def brand(request):
@@ -32,18 +32,11 @@ def brand(request):
     return render(request, 'core/brand.html', passing_dict)
 
 
-def news(request):
-    passing_dict = {
-
-    }
-    return render(request, 'core/news.html')
-
-
 def contact(request):
     passing_dict = {
 
     }
-    return render(request, 'core/contact.html')
+    return render(request, 'core/contact.html', passing_dict)
 
 
 def brand_detail(request, pk):
